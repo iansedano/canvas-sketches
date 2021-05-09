@@ -18,15 +18,7 @@ for (let i = 0; i != 250; i += 5) {
   ctx.strokeStyle = `rgb(${r}, ${g}, ${b})`;
 }
 
-function drawTriangle(x1, y1, x2, y2, x3, y3, color = "#AE81DB") {
-  ctx.strokeStyle = color;
-  ctx.beginPath();
-  ctx.moveTo(x1, y1);
-  ctx.lineTo(x2, y2);
-  ctx.lineTo(x3, y3);
-  ctx.lineTo(x1, y1);
-  ctx.stroke();
-}
+
 
 let [x1, y1, x2, y2, x3, y3] = [290, 50, 290, 50, 290, 90];
 
@@ -45,12 +37,7 @@ for (let i = 0; i != 20; i++) {
   b -= 3;
 }
 
-function drawCircle(x, y, r, color){
-    ctx.strokeStyle = color;
-    ctx.beginPath();
-    ctx.arc(x, y, r, 0, Math.PI * 2);
-    ctx.stroke();
-}
+
 
 [x1,y1] = [30,200];
 let radius = 3;

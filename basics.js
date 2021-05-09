@@ -30,11 +30,7 @@ function drawTriangle(x1, y1, x2, y2, x3, y3, color = "#AE81DB") {
 
 let [x1, y1, x2, y2, x3, y3] = [290, 50, 290, 50, 290, 90];
 
-console.log(x1, y1, x2, y2, x3, y3);
-
 [r, g, b] = [200, 255, 255];
-
-console.log(r, g, b);
 
 for (let i = 0; i != 20; i++) {
   drawTriangle(x1, y1, x2, y2, x3, y3, `rgb(${r}, ${g}, ${b})`);
@@ -48,3 +44,23 @@ for (let i = 0; i != 20; i++) {
   g -= 2;
   b -= 3;
 }
+
+function drawCircle(x, y, r, color){
+    ctx.strokeStyle = color;
+    ctx.beginPath();
+    ctx.arc(x, y, r, 0, Math.PI * 2);
+    ctx.stroke();
+}
+
+[x1,y1] = [30,200];
+let radius = 3;
+
+for (let i = 0; i != 20; i++) {
+    drawCircle(x1, y1, radius, `rgb(${r}, ${g}, ${b})`);
+    x1 += 5;
+    y1 += 3;
+    radius += 1
+    r -= 1;
+    g -= 2;
+    b -= 10;
+  }

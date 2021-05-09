@@ -1,3 +1,5 @@
+import * as lib from './lib.js'
+
 const canvas = document.getElementById("canvas");
 
 const ctx = canvas.getContext("2d");
@@ -25,7 +27,7 @@ let [x1, y1, x2, y2, x3, y3] = [290, 50, 290, 50, 290, 90];
 [r, g, b] = [200, 255, 255];
 
 for (let i = 0; i != 20; i++) {
-  drawTriangle(x1, y1, x2, y2, x3, y3, `rgb(${r}, ${g}, ${b})`);
+  lib.drawTriangle(ctx, x1, y1, x2, y2, x3, y3, `rgb(${r}, ${g}, ${b})`);
   x1 -= 5;
   y1 += 3;
   x2 -= 6;
@@ -43,7 +45,7 @@ for (let i = 0; i != 20; i++) {
 let radius = 3;
 
 for (let i = 0; i != 20; i++) {
-    drawCircle(x1, y1, radius, `rgb(${r}, ${g}, ${b})`);
+    lib.drawCircle(ctx, x1, y1, radius, `rgb(${r}, ${g}, ${b})`);
     x1 += 5;
     y1 += 3;
     radius += 1

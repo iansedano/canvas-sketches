@@ -1,4 +1,4 @@
-function drawTriangle(x1, y1, x2, y2, x3, y3, color = "#AE81DB") {
+export function drawTriangle(ctx, x1, y1, x2, y2, x3, y3, color = "#AE81DB") {
     ctx.strokeStyle = color;
     ctx.beginPath();
     ctx.moveTo(x1, y1);
@@ -8,7 +8,7 @@ function drawTriangle(x1, y1, x2, y2, x3, y3, color = "#AE81DB") {
     ctx.stroke();
   }
 
-  function drawCircle(x, y, r, color){
+export function drawCircle(ctx, x, y, r, color){
     ctx.strokeStyle = color;
     ctx.beginPath();
     ctx.arc(x, y, r, 0, Math.PI * 2);

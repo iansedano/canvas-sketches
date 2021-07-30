@@ -4,4 +4,8 @@ export class Point {
         this.y = y
     }
 
+    add(point){
+        this.x += point.x
+        this.y += point.y
+    }
 }

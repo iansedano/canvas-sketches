@@ -24,7 +24,7 @@ function animate() {
 
     p.x += xChange
     p.y += yChange
-
+    
     draw.circle(p, r, "white")
     window.requestAnimationFrame(animate)
 }

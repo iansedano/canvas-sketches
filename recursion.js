@@ -9,20 +9,20 @@ draw.background("grey")
 
 const GOLDEN_RATIO = 1.61803398875
 let angle = -Math.PI / 2
-let length = draw.height/3
+const startingLength = draw.height/3
 const startPoint = new Point(draw.width/2, draw.height-50)
+const startingThickness = 10
 
-
-function branch(point, length, angle) {
+function branch(point, length, angle, thickness) {
     if (length < 1) return
     const endBranch = new Point(
         point.x + Math.cos(angle) * length,
         point.y + Math.sin(angle) * length)
-    draw.line(point, endBranch)
+    draw.line(point, endBranch, undefined , thickness)
     
-    branch(endBranch, length / GOLDEN_RATIO, angle + 0.5)
-    branch(endBranch, length / GOLDEN_RATIO, angle - 0.2)
+    branch(endBranch, length / GOLDEN_RATIO, angle + 0.5, thickness / GOLDEN_RATIO)
+    branch(endBranch, length / GOLDEN_RATIO, angle - 0.2, thickness / GOLDEN_RATIO)
 
 }
 
-branch(startPoint, length, angle)
+branch(startPoint, startingLength, angle, startingThickness)

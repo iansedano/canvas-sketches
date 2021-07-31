@@ -20,8 +20,10 @@ export class Draw {
     }
     
     rectangle(point, w, h, color) {
+        let xTopLeft = point.x - (w / 2)
+        let yTopLeft = point.y - (h / 2)
         this.ctx.strokeStyle = color;
-        this.ctx.strokeRect(point.x, point.y, w, h);
+        this.ctx.strokeRect(xTopLeft, yTopLeft, w, h);
     }
 
     triangle(point1, point2, point3, color = "#AE81DB") {

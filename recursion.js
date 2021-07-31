@@ -7,12 +7,21 @@ const draw = new Draw(canvas)
 
 draw.background("grey")
 
-let startPoint = new Point(150, 150)
+let startPoint = new Point(500, 500)
 
 function fractal(point, w, h) {
-    if (w < 5 || h < 5) return
+    if (w < 2 || h < 2) return
     draw.rectangle(point, w, h)
-    fractal(point, w*0.95, h*0.95)
+    
+    const quarters = [
+        new Point(point.x - w/4, point.y - h/4),
+        new Point(point.x + w/4, point.y - h/4),
+        new Point(point.x - w/4, point.y + h/4),
+        new Point(point.x + w/4, point.y + h/4)
+    ]
+    
+    quarters.forEach(p => fractal(p, w/2.5, h/2.5))
+
 }
 
-fractal(startPoint, 200, 200)
+fractal(startPoint, 950, 950)

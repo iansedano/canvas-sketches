@@ -7,21 +7,22 @@ const draw = new Draw(canvas)
 
 draw.background("grey")
 
-let startPoint = new Point(500, 500)
+const GOLDEN_RATIO = 1.61803398875
+let angle = -Math.PI / 2
+let length = draw.height/3
+const startPoint = new Point(draw.width/2, draw.height-50)
 
-function fractal(point, w, h) {
-    if (w < 2 || h < 2) return
-    draw.rectangle(point, w, h)
+
+function branch(point, length, angle) {
+    if (length < 1) return
+    const endBranch = new Point(
+        point.x + Math.cos(angle) * length,
+        point.y + Math.sin(angle) * length)
+    draw.line(point, endBranch)
     
-    const quarters = [
-        new Point(point.x - w/4, point.y - h/4),
-        new Point(point.x + w/4, point.y - h/4),
-        new Point(point.x - w/4, point.y + h/4),
-        new Point(point.x + w/4, point.y + h/4)
-    ]
-    
-    quarters.forEach(p => fractal(p, w/2.5, h/2.5))
+    branch(endBranch, length / GOLDEN_RATIO, angle + 0.5)
+    branch(endBranch, length / GOLDEN_RATIO, angle - 0.2)
 
 }
 
-fractal(startPoint, 950, 950)
+branch(startPoint, length, angle)

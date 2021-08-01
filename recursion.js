@@ -29,7 +29,12 @@ function branch(point, length, angle, thickness, branchNum = 1) {
             point.y + Math.sin(angle) * (length / 3))
     }
         
-    draw.line(point, endBranch, undefined , thickness)
+    draw.line(
+        point,
+        endBranch,
+        branchNum > 9 ? "#3a5f0b" : undefined,
+        thickness
+    )
     
     const branchAngles = [
         Math.random() / 2,

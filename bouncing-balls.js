@@ -8,13 +8,15 @@ const draw = new Draw(canvas)
 
 const balls = []
 
+const clamp = (value, min, max) => Math.min(Math.max(value, min),max)
+
 for (let i = 0; i<100; i++){
     const radius = Math.random() * 20
     balls.push(
         new BouncingBall(
             new Point(
-                Math.min(Math.max(Math.random() * draw.width, radius+1), draw.width - radius-1),
-                Math.min(Math.max(Math.random() * draw.height, radius+1), draw.height - radius-1) 
+                clamp(Math.random() * draw.width, radius + 1, draw.width - radius - 1),
+                clamp(Math.random() * draw.height, radius + 1, draw.height - radius - 1)
             ),
             new Point(Math.random() * 10 - 5, Math.random() * 10 - 5),
             radius,

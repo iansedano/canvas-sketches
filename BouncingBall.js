@@ -1,3 +1,5 @@
+import { Point } from './point.js'
+
 export class BouncingBall {
     /**
      * @param {Point} position 
@@ -28,3 +30,4 @@ export class BouncingBall {
     }
     
 }
+
